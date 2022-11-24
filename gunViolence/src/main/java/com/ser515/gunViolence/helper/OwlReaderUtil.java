@@ -33,12 +33,6 @@ public class OwlReaderUtil {
         Query query = QueryFactory.create(finalQuery.toString());
         QueryExecution qexec = QueryExecutionFactory.create(query, OpenConnectOwl());
         ResultSet response = qexec.execSelect();
-        while( response.hasNext())
-        {
-            QuerySolution soln = response.nextSolution();
-            RDFNode id = soln.get("?id");
-            System.out.println(id.toString());
-        }
         return response;
     }
 
