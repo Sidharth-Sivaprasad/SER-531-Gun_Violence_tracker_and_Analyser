@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#"
+     xml:base="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#had_weapon -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#had_weapon">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#weapon_used_in"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_location -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_location">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_state"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_participants -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_participants">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#involved_in"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_source_of_info -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_source_of_info">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#source_related_to"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_state -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_state">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#involved_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#involved_in">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#location_has_incident -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#location_has_incident">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#took_place_at"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#source_related_to -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#source_related_to">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#took_place_at -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#took_place_at">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#weapon_used_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#weapon_used_in">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#address -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#address">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#age -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#age">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#city_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#city_name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gender -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gender">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gun_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gun_name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_date">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_number -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#has_number">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#incident_url -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#incident_url">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#latitude">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#longitutde -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#longitutde">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_injured -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_injured">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_killed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_killed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_adults -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_adults">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#age"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_children -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_children">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#age"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_females -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_females">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gender"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_gun -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_gun">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_males -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_males">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#gender"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_teens -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#number_of_teens">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#age"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#participant_count -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#participant_count">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#source_detail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#source_detail">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Suspect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Suspect">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Victim"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Victim -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Victim">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#California -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#California">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+        <has_location rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Hawthorne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <weapon_used_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105"/>
+        <gun_name>Unknown</gun_name>
+        <number_of_gun rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</number_of_gun>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+        <weapon_used_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726"/>
+        <gun_name>Handgun</gun_name>
+        <number_of_gun rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</number_of_gun>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Hawthorne -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Hawthorne">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <location_has_incident rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726"/>
+        <address>13500 block of Cerise Avenue</address>
+        <latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">33.909</latitude>
+        <longitutde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-118.333</longitutde>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Mckeesport -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Mckeesport">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+        <has_state rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Pennsylvania"/>
+        <location_has_incident rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105"/>
+        <address>1506 Versailles Avenue and Coursin Street</address>
+        <latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.3467</latitude>
+        <longitutde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-79.8559</longitutde>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Pennsylvania -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Pennsylvania">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+        <has_location rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Mckeesport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Suspect"/>
+        <involved_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105"/>
+        <number_of_adults rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_adults>
+        <number_of_females rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_females>
+        <participant_count rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</participant_count>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Suspect"/>
+        <involved_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726"/>
+        <number_of_adults rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_adults>
+        <number_of_males rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_males>
+        <participant_count rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</participant_count>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+        <source_related_to rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105"/>
+        <source_detail>http://www.post-gazette.com/local/south/2013/01/17/Man-arrested-in-New-Year-s-Eve-shooting-in-McKeesport/stories/201301170275</source_detail>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+        <source_related_to rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726"/>
+        <source_detail>http://www.dailybulletin.com/article/zz/20130105/NEWS/130109127</source_detail>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Victim"/>
+        <involved_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105"/>
+        <number_of_adults rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</number_of_adults>
+        <number_of_females rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_females>
+        <number_of_males rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</number_of_males>
+        <participant_count rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</participant_count>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Victim"/>
+        <involved_in rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726"/>
+        <number_of_adults rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</number_of_adults>
+        <number_of_females rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_of_females>
+        <number_of_males rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</number_of_males>
+        <participant_count rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</participant_count>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#460726">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <had_weapon rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G2"/>
+        <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S2"/>
+        <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V2"/>
+        <has_source_of_info rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_2"/>
+        <took_place_at rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Hawthorne"/>
+        <has_date>1/1/13</has_date>
+        <incident_url>http://www.gunviolencearchive.org/incident/460726</incident_url>
+        <number_injured rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</number_injured>
+        <number_killed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_killed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#461105">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+        <had_weapon rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#G1"/>
+        <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#S1"/>
+        <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V1"/>
+        <has_source_of_info rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_1"/>
+        <took_place_at rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Mckeesport"/>
+        <has_date>1/1/13</has_date>
+        <incident_url>http://www.gunviolencearchive.org/incident/461105</incident_url>
+        <number_injured rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</number_injured>
+        <number_killed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</number_killed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Gun"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Incident_ID"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Participant"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#state"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

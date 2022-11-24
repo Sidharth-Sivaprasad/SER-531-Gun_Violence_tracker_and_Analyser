@@ -19,4 +19,10 @@ public class IncidentController {
         Incident incident = incidentService.getIncidentById(id);
         return ResponseEntity.ok(incident);
     }
+    @GetMapping("/incidents")
+    ResponseEntity<Incident> getIncidentCountByCity(@RequestParam("city") String city) {
+        Incident incident = incidentService.getIncidentCountByCity(city);
+        return ResponseEntity.ok(incident);
+    }
+
 }
