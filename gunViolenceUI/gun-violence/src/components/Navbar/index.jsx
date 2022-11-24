@@ -1,0 +1,96 @@
+import React from "react";
+import styled from 'styled-components';
+import { GiPistolGun } from 'react-icons/gi';
+import { AiFillHome } from 'react-icons/ai';
+import { SiGooglemaps } from 'react-icons/si';
+import { TbReportSearch } from 'react-icons/tb';
+import { MdTimeline } from 'react-icons/md';
+
+
+
+
+
+
+const NavBody = styled.div`
+    position: fixed;
+    background-color: #5591f2;
+    // width: 20%;
+    height: 100%;
+
+    p {
+        color:white;
+        margin-top:10px;
+        text-align: center;
+        font-family: Arial;
+        font-weight: bold;        
+    }
+
+    ul {
+        list-style: none;
+        margin-top: 40px;
+        padding: 0px;
+
+        li {
+            padding: 10px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            &:hover {
+                background-color: #2273f5;
+                cursor:pointer;
+            }
+
+            svg {
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+
+    }
+
+`;
+
+const Logo = styled.div`
+    background-color: white;
+    height:50px;
+    width: 50px;
+    border-radius:50%;
+    margin-top: 15px;
+    margin-left: 25%;
+    padding:20px;
+
+    .icon {
+        margin: 5px;
+    }
+
+   
+
+
+
+
+
+`;
+
+
+const Navbar = () => {
+    return (
+        <NavBody >
+            <Logo>
+                <GiPistolGun size={40} className="icon" />
+            </Logo>
+            <p> GUN VIOLENCE ANALYZER & TRACKER </p>
+            
+            <ul>
+                <li><AiFillHome/> &nbsp;Home</li>
+                <li><SiGooglemaps/> &nbsp; Maps </li>
+                <li><TbReportSearch/> &nbsp; Reports </li>
+                <li><MdTimeline/> &nbsp; Past Years </li>
+            </ul>
+
+
+        </NavBody>
+    )
+}
+
+export default Navbar;
