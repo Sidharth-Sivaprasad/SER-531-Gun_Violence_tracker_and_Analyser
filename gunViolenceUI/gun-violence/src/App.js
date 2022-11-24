@@ -5,12 +5,14 @@ import { Grid } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <Grid container spacing={6}>
+    <div>
+      <Grid container spacing={0}>
         <Grid item xs={4}>
+          {/* <h1>hello</h1> */}
           <NavBody/>
         </Grid>
-        <Grid>
+        <Grid item xs={8}>
+          {/* <h1>Dshboard</h1> */}
           <Dashboard/>
         </Grid>
       </Grid>

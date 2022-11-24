@@ -14,12 +14,24 @@ import { MdTimeline } from 'react-icons/md';
 const NavBody = styled.div`
     position: fixed;
     background-color: #5591f2;
-    // width: 20%;
+    width: 20%;
     height: 100%;
 
     p {
+        line-spacing:1px;
+        padding:0px;
+        margin: 0px;
+        text-align: center;
+        font-family: Arial;
+        font-weight: bold;
+        color: white;
+
+    }
+
+    .piu {
         color:white;
-        margin-top:10px;
+        padding:10px;
+        margin-top:20px;
         text-align: center;
         font-family: Arial;
         font-weight: bold;        
@@ -49,6 +61,11 @@ const NavBody = styled.div`
 
     }
 
+    hr {
+        opacity:0.2;
+        margin-top: 20px;
+    }
+
 `;
 
 const Logo = styled.div`
@@ -57,7 +74,8 @@ const Logo = styled.div`
     width: 50px;
     border-radius:50%;
     margin-top: 15px;
-    margin-left: 25%;
+    margin-left: 30%;
+    margin-bottom: 20px;
     padding:20px;
 
     .icon {
@@ -79,7 +97,10 @@ const Navbar = () => {
             <Logo>
                 <GiPistolGun size={40} className="icon" />
             </Logo>
-            <p> GUN VIOLENCE ANALYZER & TRACKER </p>
+            <p> GUN VIOLENCE ANALYZER </p>
+            <p>&</p>
+            <p>TRACKER</p>
+            <hr/>
             
             <ul>
                 <li><AiFillHome/> &nbsp;Home</li>
