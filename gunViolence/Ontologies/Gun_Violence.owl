@@ -527,7 +527,7 @@
         <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V2"/>
         <has_source_of_info rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_2"/>
         <took_place_at rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Hawthorne"/>
-        <has_date>1/1/13</has_date>
+        <has_date>1/1/2013</has_date>
         <incident_url>http://www.gunviolencearchive.org/incident/460726</incident_url>
         <number_injured rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</number_injured>
         <number_killed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</number_killed>
@@ -543,7 +543,7 @@
         <has_participants rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#V1"/>
         <has_source_of_info rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Source_1"/>
         <took_place_at rdf:resource="http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#Mckeesport"/>
-        <has_date>1/1/13</has_date>
+        <has_date>1/1/2013</has_date>
         <incident_url>http://www.gunviolencearchive.org/incident/461105</incident_url>
         <number_injured rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</number_injured>
         <number_killed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</number_killed>

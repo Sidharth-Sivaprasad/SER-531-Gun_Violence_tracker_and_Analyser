@@ -18,9 +18,9 @@ public class IncidentController {
     @Autowired
     IncidentService incidentService;
     @GetMapping("/incident")
-    ResponseEntity<Incident> getIncidentById(@RequestParam("id") long id) {
-        Incident incident = incidentService.getIncidentById(id);
-        return ResponseEntity.ok(incident);
+    ResponseEntity<?> getIncidentByYear(@RequestParam("year") int year) {
+        List<Incident> incidents = incidentService.getIncidentsByYear(year);
+        return ResponseEntity.ok(incidents);
     }
     @GetMapping("/incidentsByCity")
     ResponseEntity<?> getIncidentsByCity(@RequestParam("city") String city) {
