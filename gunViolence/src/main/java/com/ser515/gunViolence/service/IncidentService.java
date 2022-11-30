@@ -189,4 +189,19 @@ public class IncidentService {
         res.put("adults",adultAvg);
         return res;
     }
+
+    public List<String> getCitiesByState(String state, String year) {
+        String query = "select DISTINCT ?location" +
+                " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
+                "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state <"
+                +GlobalVariables.defaultNameSpace+state+ "> . ?id project:has_date ?date. " +
+                "FILTER(STRENDS(str(?date),\""+year+"\"))} ";
+        ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
+        List<String> res= new ArrayList<>();
+        while( response.hasNext()) {
+            QuerySolution soln = response.nextSolution();
+            res.add(soln.getResource("?location").getLocalName());
+        }
+        return res;
+    }
 }

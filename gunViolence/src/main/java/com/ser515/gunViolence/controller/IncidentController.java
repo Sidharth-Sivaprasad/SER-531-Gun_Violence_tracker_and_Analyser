@@ -33,6 +33,11 @@ public class IncidentController {
         return ResponseEntity.ok(incidents);
     }
 
+    @GetMapping("/citiesByState")
+    ResponseEntity<?> getCitiesByState(@RequestParam("state") String state, @RequestParam("year") String year) {
+        List<String> cities = incidentService.getCitiesByState(state,year);
+        return ResponseEntity.ok(cities);
+    }
     @GetMapping("/countIncidentsByState")
     ResponseEntity<?> countIncidentsByState(@RequestParam("year") String year) {
         Map<String, String> count= incidentService.countIncidentsByState(year);
