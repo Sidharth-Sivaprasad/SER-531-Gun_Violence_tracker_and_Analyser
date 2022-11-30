@@ -20,7 +20,7 @@ public class OwlReaderUtil {
     static OntModel OpenConnectOwl(){
         OntModel mode = null;
         mode = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
-        InputStream file = FileManager.get().open("Ontologies/Gun_Violence.owl");
+        InputStream file = FileManager.get().open("Ontologies/Gun_Violence-trial.owl");
         return (OntModel) mode.read(file,defaultNameSpace);
     }
 

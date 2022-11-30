@@ -93,14 +93,14 @@ public class IncidentService {
         }
         return count;
     }
-    public List<Incident> getIncidentsByYear(int year) {
-        String yearStr = year+"";
-        String query = "select ?id ?state ?location ?address ?injured ?killed ?date" +
+    public List<Incident> getIncidentsByYear(String year) {
+        String query = "select ?id ?state ?location ?address ?injured ?killed ?date ?maleVictim" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
                 "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state ?state. " +
                 "?location project:address ?address . ?id project:number_injured ?injured. " +
                 "?id project:number_killed ?killed. ?id project:has_date ?date. " +
-                "FILTER(contains(str(?date),\""+yearStr+"\")) } ";
+                "?id project:has_victim ?victim . ?victim project:number_of_males ?maleVictim ." +
+                "FILTER(STRENDS(str(?date),\""+year+"\")) } ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<Incident> res= new ArrayList<>();
         while( response.hasNext())
@@ -114,8 +114,88 @@ public class IncidentService {
             a.setDate(soln.getLiteral("?date").getValue().toString());
             a.setInjured((int)(soln.getLiteral("?injured").getValue()));
             a.setKilled((int)(soln.getLiteral("?killed").getValue()));
+            a.setMale_victim_count((int)(soln.getLiteral("?maleVictim").getValue()));
             res.add(a);
         }
+        return res;
+    }
+
+
+    public Map<String, Double> getVictimGenderStats(String year) {
+        String query = "select (SUM(?females) as ?femaleCount) (SUM(?males) as ?maleCount)" +
+                " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
+                "Incident_ID> . ?id project:has_victim ?victim . ?victim project:number_of_males ?males . " +
+                "?victim project:number_of_females ?females . ?id project:has_date ?date. " +
+                "FILTER(STRENDS(str(?date),\""+year+"\")) } ";
+        ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
+        QuerySolution soln = response.nextSolution();
+        double males = (int)(soln.getLiteral("?maleCount").getValue());
+        double females = (int)(soln.getLiteral("?femaleCount").getValue());
+        double maleAvg = ((males)/(males+females))*100;
+        double femaleAvg = ((females)/(males+females))*100;
+        Map<String,Double> res = new HashMap<>();
+        res.put("males",maleAvg);
+        res.put("females",femaleAvg);
+        return res;
+    }
+
+    public Map<String, Double> getSuspectGenderStats(String year) {
+        String query = "select (SUM(?females) as ?femaleCount) (SUM(?males) as ?maleCount)" +
+                " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
+                "Incident_ID> . ?id project:has_suspect ?suspect . ?suspect project:number_of_males ?males . " +
+                "?suspect project:number_of_females ?females . ?id project:has_date ?date. " +
+                "FILTER(STRENDS(str(?date),\""+year+"\")) } ";
+        ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
+        QuerySolution soln = response.nextSolution();
+        double males = (int)(soln.getLiteral("?maleCount").getValue());
+        double females = (int)(soln.getLiteral("?femaleCount").getValue());
+        double maleAvg = ((males)/(males+females))*100;
+        double femaleAvg = ((females)/(males+females))*100;
+        Map<String,Double> res = new HashMap<>();
+        res.put("males",maleAvg);
+        res.put("females",femaleAvg);
+        return res;
+    }
+
+    public Map<String, Double> getVictimAgeStats(String year) {
+        String query = "select (SUM(?teens) as ?teenCount) (SUM(?children) as ?childrenCount)" +
+                "(SUM(?adults) as ?adultCount) where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
+                "Incident_ID> . ?id project:has_victim ?victim . ?victim project:number_of_adults ?adults . " +
+                "?victim project:number_of_teens ?teens . ?victim project:number_of_children ?children . " +
+                "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\")) } ";
+        ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
+        QuerySolution soln = response.nextSolution();
+        double teens = (int)(soln.getLiteral("?teenCount").getValue());
+        double adults = (int)(soln.getLiteral("?adultCount").getValue());
+        double children = (int)(soln.getLiteral("?childrenCount").getValue());
+        double teenAvg = ((teens)/(teens+adults+children))*100;
+        double adultAvg = ((adults)/(teens+adults+children))*100;
+        double childrenAvg = ((children)/(teens+adults+children))*100;
+        Map<String,Double> res = new HashMap<>();
+        res.put("children",childrenAvg);
+        res.put("teens",teenAvg);
+        res.put("adults",adultAvg);
+        return res;
+    }
+
+    public Map<String, Double> getSuspectAgeStats(String year) {
+        String query = "select (SUM(?teens) as ?teenCount) (SUM(?children) as ?childrenCount)" +
+                "(SUM(?adults) as ?adultCount) where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
+                "Incident_ID> . ?id project:has_suspect ?suspect . ?suspect project:number_of_adults ?adults . " +
+                "?suspect project:number_of_teens ?teens . ?suspect project:number_of_children ?children . " +
+                "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\")) } ";
+        ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
+        QuerySolution soln = response.nextSolution();
+        double teens = (int)(soln.getLiteral("?teenCount").getValue());
+        double adults = (int)(soln.getLiteral("?adultCount").getValue());
+        double children = (int)(soln.getLiteral("?childrenCount").getValue());
+        double teenAvg = ((teens)/(teens+adults+children))*100;
+        double adultAvg = ((adults)/(teens+adults+children))*100;
+        double childrenAvg = ((children)/(teens+adults+children))*100;
+        Map<String,Double> res = new HashMap<>();
+        res.put("children",childrenAvg);
+        res.put("teens",teenAvg);
+        res.put("adults",adultAvg);
         return res;
     }
 }
