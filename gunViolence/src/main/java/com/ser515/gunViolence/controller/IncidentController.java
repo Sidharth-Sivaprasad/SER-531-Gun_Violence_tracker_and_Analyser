@@ -23,24 +23,19 @@ public class IncidentController {
         return ResponseEntity.ok(incidents);
     }
     @GetMapping("/incidentsByCity")
-    ResponseEntity<?> getIncidentsByCity(@RequestParam("city") String city) {
-        List<Incident> incidents = incidentService.getIncidentsByCity(city);
+    ResponseEntity<?> getIncidentsByCity(@RequestParam("city") String city, @RequestParam("year") String year) {
+        List<Incident> incidents = incidentService.getIncidentsByCity(city,year);
         return ResponseEntity.ok(incidents);
     }
     @GetMapping("/incidentsByState")
-    ResponseEntity<?> getIncidentsByState(@RequestParam("state") String state) {
-        List<Incident> incidents = incidentService.getIncidentsByState(state);
+    ResponseEntity<?> getIncidentsByState(@RequestParam("state") String state, @RequestParam("year") String year) {
+        List<Incident> incidents = incidentService.getIncidentsByState(state,year);
         return ResponseEntity.ok(incidents);
-    }
-    @GetMapping("/allIncidents")
-    ResponseEntity<?> getAllIncidents() {
-        List<Incident> incidents = incidentService.getAllIncidents();
-        return  ResponseEntity.ok(incidents);
     }
 
     @GetMapping("/countIncidentsByState")
-    ResponseEntity<?> countIncidentsByState() {
-        Map<String, String> count= incidentService.countIncidentsByState();
+    ResponseEntity<?> countIncidentsByState(@RequestParam("year") String year) {
+        Map<String, String> count= incidentService.countIncidentsByState(year);
         return  ResponseEntity.ok(count);
     }
 
