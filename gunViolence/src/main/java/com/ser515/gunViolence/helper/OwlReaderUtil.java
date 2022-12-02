@@ -24,16 +24,29 @@ public class OwlReaderUtil {
         return (OntModel) mode.read(file,defaultNameSpace);
     }
 
-    public static ResultSet execSparqlQuery(String queryStr){
+//    public static ResultSet execSparqlQuery(String queryStr){
+//        StringBuffer finalQuery = new StringBuffer();
+//        finalQuery.append("PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ");
+//        finalQuery.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ");
+//        finalQuery.append("PREFIX project: <http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#> ");
+//        finalQuery.append(queryStr);
+//        Query query = QueryFactory.create(finalQuery.toString());
+//        QueryExecution qexec = QueryExecutionFactory.create(query, OpenConnectOwl());
+//        ResultSet response = qexec.execSelect();
+//        return response;
+//    }
+
+    public static ResultSet execSparqlQuery( String queryStr) {
         StringBuffer finalQuery = new StringBuffer();
         finalQuery.append("PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ");
         finalQuery.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ");
         finalQuery.append("PREFIX project: <http://www.semanticweb.org/sidharthkoyipallilsivaprasad/ontologies/2022/10/Gun_Violence#> ");
         finalQuery.append(queryStr);
-        Query query = QueryFactory.create(finalQuery.toString());
-        QueryExecution qexec = QueryExecutionFactory.create(query, OpenConnectOwl());
-        ResultSet response = qexec.execSelect();
-        return response;
+        QueryExecution q = QueryExecutionFactory.sparqlService("http://localhost:3030/gunViolence",
+                finalQuery.toString());
+        ResultSet results = q.execSelect();
+        return results;
+
     }
 
 }
