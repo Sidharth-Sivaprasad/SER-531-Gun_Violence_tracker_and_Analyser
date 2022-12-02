@@ -18,11 +18,11 @@ import java.util.Map;
 public class IncidentService {
 
     public List<Incident> getIncidentsByCity(String city, String year) {
-        String query = "select ?id ?state ?location ?address ?injured ?killed ?date" +
+        String query = "select ?id ?state ?city ?address ?injured ?killed ?date" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
-                "Incident_ID> . ?id project:took_place_at <" +GlobalVariables.defaultNameSpace+city+
-                "> . ?id project:took_place_at ?location . ?location project:has_state ?state. " +
-                "?location project:address ?address . ?id project:number_injured ?injured. " +
+                "Incident_ID> . ?id project:has_city <" +GlobalVariables.defaultNameSpace+city+
+                "> . ?id project:has_city ?city . ?id project:has_state ?state. " +
+                "?id project:address ?address . ?id project:number_injured ?injured. " +
                 "?id project:number_killed ?killed." +
                 "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\"))} ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
@@ -44,11 +44,11 @@ public class IncidentService {
     }
 
     public List<Incident> getIncidentsByState(String state, String year) {
-        String query = "select ?id ?state ?location ?address ?injured ?killed ?date" +
+        String query = "select ?id ?state ?city ?address ?injured ?killed ?date" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
-                "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state <"
-                +GlobalVariables.defaultNameSpace+state+ "> . ?location project:has_state ?state. "
-                +"?location project:address ?address . ?id project:number_injured ?injured. " +
+                "Incident_ID> . ?id project:has_city ?city  . ?id project:has_state <"
+                +GlobalVariables.defaultNameSpace+state+ "> . ?id project:has_state ?state. "
+                +"?id project:address ?address . ?id project:number_injured ?injured. " +
                 "?id project:number_killed ?killed. "+
                 "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\"))} ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
@@ -57,7 +57,7 @@ public class IncidentService {
         {
             Incident a = new Incident();
             QuerySolution soln = response.nextSolution();
-            a.setCity(soln.getResource("?location").getLocalName());
+            a.setCity(soln.getResource("?city").getLocalName());
             a.setId(soln.get("?id").toString().substring(88));
             a.setState(state);
             a.setAddress(soln.getLiteral("?address").getValue().toString());
@@ -71,7 +71,7 @@ public class IncidentService {
 
     public Map<String,String> countIncidentsByState(String year) {
         String query = "select ?state (COUNT(*) as ?count) where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
-                "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state ?state." +
+                "Incident_ID> . ?id project:has_state ?state." +
                 "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\"))}"+
                 "GROUP BY ?state ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
@@ -85,12 +85,12 @@ public class IncidentService {
         return count;
     }
     public List<Incident> getIncidentsByYear(String year) {
-        String query = "select ?id ?state ?location ?address ?injured ?killed ?date ?maleVictim" +
+        int count =0;
+        String query = "select DISTINCT ?id ?state ?city ?address ?injured ?killed ?date" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
-                "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state ?state. " +
-                "?location project:address ?address . ?id project:number_injured ?injured. " +
+                "Incident_ID> . ?id project:has_city ?city . ?id project:has_state ?state. " +
+                "?id project:address ?address . ?id project:number_injured ?injured. " +
                 "?id project:number_killed ?killed. ?id project:has_date ?date. " +
-                "?id project:has_victim ?victim . ?victim project:number_of_males ?maleVictim ." +
                 "FILTER(STRENDS(str(?date),\""+year+"\")) } ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<Incident> res= new ArrayList<>();
@@ -98,16 +98,16 @@ public class IncidentService {
         {
             Incident a = new Incident();
             QuerySolution soln = response.nextSolution();
-            a.setCity(soln.getResource("?location").getLocalName());
+            a.setCity(soln.getResource("?city").getLocalName());
             a.setId(soln.get("?id").toString().substring(88));
             a.setState(soln.getResource("?state").getLocalName());
             a.setAddress(soln.getLiteral("?address").getValue().toString());
             a.setDate(soln.getLiteral("?date").getValue().toString());
             a.setInjured((int)(soln.getLiteral("?injured").getValue()));
             a.setKilled((int)(soln.getLiteral("?killed").getValue()));
-            a.setMale_victim_count((int)(soln.getLiteral("?maleVictim").getValue()));
             res.add(a);
         }
+        System.out.println(res.size());
         return res;
     }
 
@@ -191,16 +191,16 @@ public class IncidentService {
     }
 
     public List<String> getCitiesByState(String state, String year) {
-        String query = "select DISTINCT ?location" +
+        String query = "select DISTINCT ?city" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
-                "Incident_ID> . ?id project:took_place_at ?location . ?location project:has_state <"
+                "Incident_ID> . ?id project:has_city  ?city . ?id project:has_state <"
                 +GlobalVariables.defaultNameSpace+state+ "> . ?id project:has_date ?date. " +
                 "FILTER(STRENDS(str(?date),\""+year+"\"))} ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<String> res= new ArrayList<>();
         while( response.hasNext()) {
             QuerySolution soln = response.nextSolution();
-            res.add(soln.getResource("?location").getLocalName());
+            res.add(soln.getResource("?city").getLocalName());
         }
         return res;
     }
