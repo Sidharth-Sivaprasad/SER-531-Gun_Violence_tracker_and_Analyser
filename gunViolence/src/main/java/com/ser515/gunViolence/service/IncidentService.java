@@ -18,12 +18,12 @@ import java.util.Map;
 public class IncidentService {
 
     public List<Incident> getIncidentsByCity(String city, String year) {
-        String query = "select ?id ?state ?city ?address ?injured ?killed ?date" +
+        String query = "select ?id ?state ?city ?address ?injured ?killed ?date ?guns" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
                 "Incident_ID> . ?id project:has_city <" +GlobalVariables.defaultNameSpace+city+
                 "> . ?id project:has_city ?city . ?id project:has_state ?state. " +
                 "?id project:address ?address . ?id project:number_injured ?injured. " +
-                "?id project:number_killed ?killed." +
+                "?id project:number_killed ?killed. OPTIONAL {?id project:has_gun_number ?guns .}" +
                 "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\"))} ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<Incident> res= new ArrayList<>();
@@ -38,18 +38,23 @@ public class IncidentService {
             a.setDate(soln.getLiteral("?date").getValue().toString());
             a.setInjured((int)(soln.getLiteral("?injured").getValue()));
             a.setKilled((int)(soln.getLiteral("?killed").getValue()));
+            if(soln.getLiteral("?guns") == null){
+                a.setNumberOfGuns(0);
+            }else {
+                a.setNumberOfGuns((int) (soln.getLiteral("?guns").getValue()));
+            }
             res.add(a);
         }
         return res;
     }
 
     public List<Incident> getIncidentsByState(String state, String year) {
-        String query = "select ?id ?state ?city ?address ?injured ?killed ?date" +
+        String query = "select ?id ?state ?city ?address ?injured ?killed ?date ?guns" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
                 "Incident_ID> . ?id project:has_city ?city  . ?id project:has_state <"
                 +GlobalVariables.defaultNameSpace+state+ "> . ?id project:has_state ?state. "
                 +"?id project:address ?address . ?id project:number_injured ?injured. " +
-                "?id project:number_killed ?killed. "+
+                "?id project:number_killed ?killed. OPTIONAL {?id project:has_gun_number ?guns .}"+
                 "?id project:has_date ?date. FILTER(STRENDS(str(?date),\""+year+"\"))} ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<Incident> res= new ArrayList<>();
@@ -64,6 +69,11 @@ public class IncidentService {
             a.setDate(soln.getLiteral("?date").getValue().toString());
             a.setInjured((int)(soln.getLiteral("?injured").getValue()));
             a.setKilled((int)(soln.getLiteral("?killed").getValue()));
+            if(soln.getLiteral("?guns") == null){
+                a.setNumberOfGuns(0);
+            }else {
+                a.setNumberOfGuns((int) (soln.getLiteral("?guns").getValue()));
+            }
             res.add(a);
         }
         return res;
@@ -86,12 +96,12 @@ public class IncidentService {
     }
     public List<Incident> getIncidentsByYear(String year) {
         int count =0;
-        String query = "select DISTINCT ?id ?state ?city ?address ?injured ?killed ?date" +
+        String query = "select DISTINCT ?id ?state ?city ?address ?injured ?killed ?date ?guns" +
                 " where{?id rdf:type " + "<" + GlobalVariables.defaultNameSpace+
                 "Incident_ID> . ?id project:has_city ?city . ?id project:has_state ?state. " +
                 "?id project:address ?address . ?id project:number_injured ?injured. " +
                 "?id project:number_killed ?killed. ?id project:has_date ?date. " +
-                "FILTER(STRENDS(str(?date),\""+year+"\")) } ";
+                "OPTIONAL {?id project:has_gun_number ?guns .} FILTER(STRENDS(str(?date),\""+year+"\")) } ";
         ResultSet response  = OwlReaderUtil.execSparqlQuery(query);
         List<Incident> res= new ArrayList<>();
         while( response.hasNext())
@@ -105,6 +115,11 @@ public class IncidentService {
             a.setDate(soln.getLiteral("?date").getValue().toString());
             a.setInjured((int)(soln.getLiteral("?injured").getValue()));
             a.setKilled((int)(soln.getLiteral("?killed").getValue()));
+            if(soln.getLiteral("?guns") == null){
+                a.setNumberOfGuns(0);
+            }else {
+                a.setNumberOfGuns((int) (soln.getLiteral("?guns").getValue()));
+            }
             res.add(a);
         }
         System.out.println(res.size());
