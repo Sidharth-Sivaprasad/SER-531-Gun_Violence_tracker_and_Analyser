@@ -10,7 +10,7 @@ The initial dataset was preprocessed where unwanted data were filtered out . We 
 # Setting up Fuseki Server in AWS EC2 instance that we have hosted
 
 ssh -i fuseki-key-pair.pem ec2-user@35.90.223.93
-We have pushed the .pem file in the repository.
+We have pushed the .pem file in the repository under ec2 files folder.
 
  cd apache-jena-fuseki-4.6.1/
  java -jar fuseki-server.jar --update --mem /gun_violence ( For creating the dataset )
