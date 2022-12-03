@@ -5,7 +5,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { SiGooglemaps } from 'react-icons/si';
 import { TbReportSearch } from 'react-icons/tb';
 import { MdTimeline } from 'react-icons/md';
-
+import { Link } from "react-router-dom";
 
 
 
@@ -41,6 +41,9 @@ const NavBody = styled.div`
         list-style: none;
         margin-top: 40px;
         padding: 0px;
+        a {
+            text-decoration:none;
+        }
 
         li {
             padding: 10px;
@@ -100,13 +103,24 @@ const Navbar = () => {
             <p> GUN VIOLENCE ANALYZER </p>
             <p>&</p>
             <p>TRACKER</p>
-            <hr/>
-            
+            <hr />
+
             <ul>
-                <li><AiFillHome/> &nbsp;Home</li>
-                <li><SiGooglemaps/> &nbsp; Maps </li>
-                <li><TbReportSearch/> &nbsp; Reports </li>
-                <li><MdTimeline/> &nbsp; Past Years </li>
+                <Link to={"/dashboard"}>
+                    <li>
+                        <AiFillHome /> &nbsp;Home
+                    </li>
+                </Link>
+                <Link to={"/map"}>
+                    <li>
+                        <SiGooglemaps /> &nbsp; Maps
+                    </li>
+                </Link>
+                <Link to={"/report"}>
+                    <li><TbReportSearch /> &nbsp; Reports </li>
+                </Link>
+                
+                {/* <li><MdTimeline /> &nbsp; Past Years </li> */}
             </ul>
 
 
